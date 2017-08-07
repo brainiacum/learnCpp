@@ -11,7 +11,7 @@ int main()
 	for(i=4; i>=0; i--)
 	{
 		int c=0;
-		v1[i]=i*2;		
+		v1[i]=i*3;		
 		cout<<c+1<<"е число "<<v1[i]<<"\n";
 		c=c+1;
 	}
@@ -19,17 +19,17 @@ int main()
 	for (int j=0;j<v1.size();j++)
 	{
 		int posit=j;
-		int temp=v1[posit];
+		int temp=v1.at(posit);
 		for (int k=j+1;k<v1.size();k++)
 		{
 			if(v1[k]<temp)
 			{
 				posit=k;
-				temp=v1[k];
+				temp=v1.at(k);
 			}
 		}
-		v1[posit]=v1[j];
-		v1[j] = temp;
+		v1.at(posit)=v1.at(j);
+		v1.at(j) = temp;
 	}
 	for (int p=0;p<v1.size();p++)
 	{
