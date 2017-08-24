@@ -1,35 +1,44 @@
-#include <algorithm>
-#include <list>
+#include <forward_list>
 #include <iostream>
 
 using namespace std;
 int main()
 {
-    list<int> l;
-    int i;
+    std::forward_list<int> fl={};
     int j;
     cout<<"Введите количество элементов списка\n";
     int imax;
     cin>>imax;
-    cout<<"Введите элементы списка\n";
-    for(i = 0 ;i < imax;i++){
-        std::cin>>j;
-        l.push_back(j);
+    if (cin.fail())
+    {
+        cout<<"Вы ввели нецелочисленное значение.\n";
+        return 0;
+    } 
+    else if (imax == 0)
+    {
+        do
+        {
+            cout<<"количество элементов не может быть равно нулю. Введите заново ЦЕЛОЦИСЛЕННОЕ значение: \n";
+            cin>>imax;
+        }
+        while(imax==0);   
     }
-    l.sort();
+    cout<<"Введите элементы списка\n";
+    for(int i = 0 ;i < imax;i++){   
+        std::cin>>j;
+        if (cin.fail())
+        {
+            cout<<"Элементами списка должны быть числа.\n";
+            return 0;
+        }
+        fl.push_front(j);
+    }
+    fl.sort();
     cout<<"Производится сортировка:\n";
-    list<int>::iterator li;
-    for (li = l.begin();li!=l.end();li++)
+    
+    for (forward_list<int>::iterator li = fl.begin();li!=fl.end();li++)
     {
         cout<<*li<<'\n';
     }
-    /*int max = 0;
-    for (li = l.begin();li!=l.end();li++)
-        if(max < *li) max = *li;
-    list<int>::iterator temp = l.begin();
-    *temp = max;
-        for (li = l.begin();li!=l.end();li++)
-            cout<<*li,"\n";
-    */
     return 0;
 }
