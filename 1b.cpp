@@ -4,38 +4,53 @@ using namespace std;
 
 int main()
 {
-	cout<<"Введите размер вектора\n";
+	cout << "Введите размер вектора\n";
 	int vecsize;
-	cin>> vecsize;
-	vector<int> v1(vecsize);
-	cout <<"Размер вектора: " <<vecsize<<"\n";
-	cout <<"Коллекция чисел: \n";
-	int counter=0;
-	for(int i=0; i<vecsize; i++)
+	cin >> vecsize;
+	if (cin.fail())
 	{
-		v1.push_back((vecsize-counter)*3);		
-		cout<<counter+1<<"е число "<<v1.back()<<"\n";
-		counter=counter+1;
+		cout << "Введено нецелочисленное значение.\n";
+		return 0;
 	}
-	for (int j=vecsize;j<vecsize*2;j++)
+	else if (vecsize <= 0)
 	{
-		int posit=j;
-		int temp=v1.at(posit);
-		for (int k=j+1;k<vecsize*2;k++)
+		do
+		{		
+			cout << "Размер вектора должен быть положителен. Введите значение заново.\n";
+			cin >> vecsize;
+		}
+		while (vecsize <= 0);
+	}
+	vector<int> v1;
+	cout << "Коллекция чисел: \n";
+	for(int counter = 0, i = 0; i < vecsize; counter++, i++)
+	{
+		v1.push_back((vecsize-counter)*3);
+		cout << ++counter << "е число " << v1.back() << "\n";
+	}
+	cout << "Размер вектора: " << v1.size() << "\n";
+
+
+	for (int j = 0; j < vecsize; j++)
+	{
+		int posit = j;
+		int temp = v1.at(posit);
+		for (int k = j+1; k < vecsize; k++)
 		{
-			if(v1[k]<temp)
+			if(v1.at(k) < temp)
 			{
-				posit=k;
-				temp=v1.at(k);
+				posit = k;
+				temp = v1.at(k);
 			}
 		}
-		v1.at(posit)=v1.at(j);
+		std :: swap (v1.at(posit), v1.at(j));
 		v1.at(j) = temp;
 	}	
-	cout <<"Сортировка\n";
-	for (int p=vecsize;p<vecsize*2;p++)
+
+	cout << "Сортировка\n";
+	for (int p=0; p < v1.size(); p++)
 	{
-		cout << v1[p]<<"\n";	
+		cout << v1.at(p) << "\n";	
 	}
 	return 0;
 }
