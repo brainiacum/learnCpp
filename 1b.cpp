@@ -23,10 +23,11 @@ int main()
 	}
 	vector<int> v1;
 	cout << "Коллекция чисел: \n";
-	for(int counter = 0, i = 0; i < vecsize; counter++, i++)
+	for(int i = 0; i < vecsize; i++)
 	{
-		v1.push_back((vecsize-counter)*3);
-		cout << ++counter << "е число " << v1.back() << "\n";
+		int value = (vecsize - i) * 3;
+		v1.push_back(value);
+		cout << i + 1 << "е число " << v1.back() << "\n";
 	}
 	cout << "Размер вектора: " << v1.size() << "\n";
 
