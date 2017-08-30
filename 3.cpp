@@ -21,7 +21,7 @@ int main()
 		}
 	}
 	cout << "Элементы вектора: \n";
-	for (int i = 0; i < vec.size(); i++)
+	for (int i = 0; i < vec.size(); ++i)
 	{
 		cout << vec[i] << "\n";
 	}
@@ -29,7 +29,7 @@ int main()
 	if (vec.back() == 1)
 	{
 		cout << "Последний элемент вектора равен 1. Все элементы вектора, кратные 2 будут удалены. \n";
-		for (int i = 0; i < vec.size(); i++)
+		for (int i = 0; i < vec.size(); ++i)
 		{
 			if (vec[i]%2 == 0)
 			{
@@ -40,17 +40,18 @@ int main()
 	else if (vec.back() == 2)
 	{
 		cout << "Последний элемент вектора равен 2. Все элементы вектора, кратные 3 будут изменены (к ним будут добавлены 111).\n";
-		for (int i = 0; i < vec.size(); i++)
+		for (int i = 0; i < vec.size(); ++i)
 		{
 			if (vec[i]%3 == 0)
 			{
-				vec[i]=vec[i] + 111;
+				vec.insert(vec.begin()+i, 111);
+				i++;
 			}
 		}
 	}
 	cout << "Изменения в соответствии с последним элементом произведены. \n";
 	cout << "Оставшиеся элементы: \n";
-	for (int i = 0; i < vec.size(); i++)
+	for (int i = 0; i < vec.size(); ++i)
 	{
 		cout << vec[i] << "\n";
 	}
