@@ -1,56 +1,55 @@
 #include <iostream>
-#include <vector> 
-using namespace std;
+#include <vector>
 
 int main()
 {
-	cout << "Введите размер вектора\n";
+	std::cout << "Введите размер вектора\n";
 	int vecsize;
-	cin >> vecsize;
-	if (cin.fail())
+	std::cin >> vecsize;
+	if (std::cin.fail())
 	{
-		cout << "Введено нецелочисленное значение.\n";
+		std::cout << "Введено нецелочисленное значение.\n";
 		return 0;
 	}
 	else if (vecsize <= 0)
 	{
 		do
 		{		
-			cout << "Размер вектора должен быть положителен. Введите значение заново.\n";
-			cin >> vecsize;
+			std::cout << "Размер вектора должен быть положителен. Введите значение заново.\n";
+			std::cin >> vecsize;
 		}
 		while (vecsize <= 0);
 	}
-	vector<int> v1;
-	cout << "Коллекция чисел: \n";
-	for(int counter = 0, i = 0; i < vecsize; counter++, i++)
+	std::vector<int> v1;
+	std::cout << "Коллекция чисел: \n";
+	for(unsigned int i = 0; i < vecsize; i++)
 	{
-		v1.push_back((vecsize-counter)*2);
-		cout << ++counter << "е число " << v1.back() << "\n";
+		int j = i;
+		int value = (vecsize - i) * 2;
+		v1.push_back(value);
+		std::cout << ++j << "е число " << v1.back() << "\n";
 	}
-	cout << "Размер вектора: " << v1.size() << "\n";
+	std::cout << "Размер вектора: " << v1.size() << "\n";
 
 
 	for (int j = 0; j < vecsize; j++)
 	{
 		int posit = j;
-		int temp = v1[posit];
 		for (int k = j+1; k < vecsize; k++)
 		{
-			if(v1[k] < temp)
+			if(v1[k] < v1[posit])
 			{
 				posit = k;
-				temp = v1[k];
+				v1[posit] = v1[k];
 			}
 		}
-		std :: swap (v1[posit], v1[j]);
-		v1[j] = temp;
+		std::swap (v1[posit], v1[j]);
 	}	
 
-	cout << "Сортировка\n";
+	std::cout << "Сортировка\n";
 	for (int p=0; p < v1.size(); p++)
 	{
-		cout << v1[p] << "\n";	
+		std::cout << v1[p] << "\n";	
 	}
 	return 0;
 }
