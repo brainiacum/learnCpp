@@ -45,44 +45,78 @@ void printVector(double * array, int size)
 int main()
 {	
 	std::vector<double> v1(5);
+
 	fillRandom(v1.data(), v1.size());	
+	
 	std::cout << "Вектор 1 заполнен числами: \n";
+	
 	printVector(v1.data(), v1.size());
+	
 	sortByGrow(v1.data(), v1.size());	
+	
 	std::cout << "Отсортированный вектор 1: \n";
+	
 	printVector(v1.data(), v1.size());
+
 
 	std::vector<double> v2(10);
+	
 	fillRandom(v2.data(), v2.size());
+	
 	std::cout << "Вектор 2 заполнен числами: \n";
+	
 	printVector(v2.data(), v2.size());
+	
 	sortByGrow(v2.data(), v2.size());
+	
 	std::cout << "Отсортированный вектор 2: \n";
-	for (int i = 0; i < v2.size(); ++i)
+	
 	printVector(v2.data(), v2.size());	
 
+	
 	std::vector<double> v3(25);
+	
 	fillRandom(v3.data(), v3.size());
+	
 	std::cout << "Вектор 3 заполнен числами: \n";
+	
 	printVector(v3.data(), v3.size());
+	
 	sortByGrow(v3.data(), v3.size());
+	
 	std::cout << "Отсортированный вектор 3: \n";
+	
 	printVector(v3.data(), v3.size());
 
+
 	std::vector<double> v4(50);
+
 	fillRandom(v4.data(), v4.size());
+
 	std::cout << "Вектор 4 заполнен числами: \n";
+
+
 	printVector(v4.data(), v4.size());
+
 	sortByGrow(v4.data(), v4.size());
+
 	std::cout << "Отсортированный вектор 4: \n";
+
 	printVector(v4.data(), v4.size());
+
 	
 	std::vector<double> v5(100);
+
 	fillRandom(v5.data(), v5.size());
+
 	std::cout << "Вектор 5 заполнен числами: \n";
+
 	printVector(v5.data(), v5.size());
+
 	sortByGrow(v5.data(), v5.size());
+
 	std::cout << "Отсортированный вектор 5: \n";
+
 	printVector(v5.data(), v5.size());
 	
 	return 0;
