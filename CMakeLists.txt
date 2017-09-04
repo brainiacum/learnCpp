@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8.12.2)
+project(Vector)
+add_executable(1a.bin 1a.cpp)
+add_executable(1b.bin 1b.cpp)
+add_executable(1c.bin 1c.cpp)
